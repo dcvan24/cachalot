@@ -1,0 +1,60 @@
+{
+  "seeds": [8596809, 4804822, 9894197, 3137160, 4960412, 2592819, 1769256,
+            3104786, 9578301,  432641, 9054084, 7608316, 2751750,  841606,
+            1695832, 8512244, 7201516, 1350127, 7057427, 6964735, 6458078,
+            4734531, 9019300, 7037697,  275697, 6260108, 6324099, 3870482,
+            5756502,  181003],
+  "n_runs":1,
+  "n_nodes": 100,
+  "capacity": 400000,
+  "master_type": "epoch",
+  "master_params": {
+    "epoch": 3600
+  },
+  "slave_type": "gd",
+  "slave_params": {
+      "util_func": "nectar",
+      "auto_replication": true,
+      "share_compute": false,
+      "network_aware": false
+  },
+  "cluster_bw": [0],
+  "cluster_lat": null,
+  "cache_bw": [0.01, 1],
+  "cache_lat": null,
+  "req_int_lam": 200,
+  "req_dist": "uniform",
+  "req_dist_params": {"lo": 0, "hi": 99},
+  "load": {
+    "n_tasks": 100000,
+    "n_data": 10000,
+    "size_dist": "power",
+    "size_dist_params": {"a": 0.8, "n_ranks": 10000},
+    "n_ops": 1,
+    "op_exec_func": "linear",
+    "op_exec_func_params": {"w": [1, 1], "b": [0, 0]},
+    "op_exec_time_func": "linear",
+    "op_exec_time_func_params": {"w": 100, "b": [0, 0]},
+    "op_output_size_func": "linear",
+    "op_output_size_func_params": {"w": 1, "b": [0, 0]},
+    "data_access_dist": "power",
+    "data_access_dist_params": {"a": 0.8, "n_ranks": 10000},
+    "op_access_dist": "uniform",
+    "op_access_dist_params": {"lo": 1, "hi": 1}
+  },
+  "verbose": {
+    "slave": {
+      "insert_runtime": false,
+      "evict_runtime": false,
+      "retrieve_runtime": false
+    },
+    "master": {
+      "insert_time": false,
+      "evict_time": false,
+      "retrieve_time": false,
+      "solver_time": false
+    },
+    "wait_time": false,
+    "exec_time": false
+  }
+}
